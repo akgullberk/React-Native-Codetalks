@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {Login, Sign, Rooms} from "../screens";
 import auth from '@react-native-firebase/auth';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,10 +28,18 @@ const Navigation = () => {
     return (
         <Stack.Navigator>
             {!userSession ? (
-                <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown: false}} />
+                <Stack.Screen name="AuthStack" component={AuthStack} 
+                options={{headerShown: false}} />
                 
             ) :(
-                <Stack.Screen name="Rooms" component={Rooms} options={{headerShown: false}} />
+                <Stack.Screen name="Odalar" component={Rooms} 
+                options={{
+                    headerTitleAlign: 'center',
+                    headerTintColor:"#ffa040",
+                    headerRight: () => (
+                        <Icon name="logout" size={30} color="#ffa040" onPress={() => auth().signOut()} />
+                    )
+                }} />
             )
             }
             
