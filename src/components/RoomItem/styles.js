@@ -11,11 +11,13 @@ export default StyleSheet.create({
         borderWidth:1,
         borderColor:"#e0e0e2",
         borderRadius:windowWidth*0.02,
+        alignItems:"center",
+        justifyContent:"center",
+        margin:windowWidth*0.05
         
     },
     inner_container:{
-        alignItems:"center",
-        justifyContent:"center",
+        
     },
     room_text:{
         color:"#ff6f00",

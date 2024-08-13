@@ -1,14 +1,14 @@
-import {Text, View } from 'react-native'
+import {Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import styles  from './styles'
 
-const RoomItem = ({roomName}) => {
+const RoomItem = ({room,onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.inner_container}>
-        <Text style={styles.room_text}>{roomName}</Text>
+        <Text style={styles.room_text}>{room.text}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
