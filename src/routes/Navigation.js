@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {Login, Sign, Rooms} from "../screens";
+import {Login, Sign, Rooms,Room} from "../screens";
 import auth from '@react-native-firebase/auth';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -40,8 +40,19 @@ const Navigation = () => {
                         <Icon name="logout" size={30} color="#ffa040" onPress={() => auth().signOut()} />
                     )
                 }} />
+                
             )
             }
+
+            <Stack.Screen name="Room" component={Room} 
+                options={{
+                    headerTitleAlign: 'center',
+                    headerTintColor:"#ffa040",
+                    headerBackTitleVisible: true,
+                    headerRight: () => (
+                        <Icon name="logout" size={30} color="#ffa040" onPress={() => auth().signOut()} />
+                    )
+                }} />
             
         </Stack.Navigator >
         

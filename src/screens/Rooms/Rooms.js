@@ -1,6 +1,5 @@
 import {FlatList, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database'
 import { RoomItem,FloatingButton,InputModal } from '../../components';
 import styles from './styles'
@@ -52,6 +51,7 @@ const Rooms = ({navigation}) => {
   const handleOnSend = (item) => {
     database()
     .ref(`rooms/${item.id}/`)
+    navigation.navigate('Room', {roomName: item.text})
   }
 
   const renderContent = ({item}) => 

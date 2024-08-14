@@ -13,15 +13,17 @@ export default StyleSheet.create({
         borderRadius:windowWidth*0.02,
         alignItems:"center",
         justifyContent:"center",
-        margin:windowWidth*0.05
+        margin:windowWidth*0.05,
+        
         
     },
     inner_container:{
         
     },
     room_text:{
-        color:"#ff6f00",
+        color:"#ffa040",
         fontSize:windowWidth*0.08,
+        
     },
     
 })
