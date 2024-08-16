@@ -11,7 +11,7 @@ export default StyleSheet.create({
         alignItems:"center"
     },
     header_container:{
-        width:windowWidth *0.9,
+        width:windowWidth *0.95,
         height:windowHeight*0.05,
         borderWidth:1,
         borderColor:"white",

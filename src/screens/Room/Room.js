@@ -6,7 +6,7 @@ import database from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth'
 
 const Room = ({ route, navigation }) => {
-    const { roomName } = route.params;
+    const { roomName,roomId } = route.params;
     const [modalVisible, setModalVisible] = useState(false)
     const [messageList, setMessageList] = useState([])
 
@@ -19,7 +19,7 @@ const Room = ({ route, navigation }) => {
 
       useEffect(() => {
         database()
-        .ref('messages/')
+        .ref( `rooms/${roomId}/messages/`)
         .on("value",snapshot =>{
           const contentData = snapshot.val();
     
@@ -49,7 +49,7 @@ const Room = ({ route, navigation }) => {
             date: new Date().toISOString(),            
           };
     
-          database().ref('messages/').push(contentObject)
+          database().ref(`rooms/${roomId}/messages/`).push(contentObject)
       }
 
       const handleSendContent = (content) => {
@@ -57,10 +57,7 @@ const Room = ({ route, navigation }) => {
         sendContent(content)
       }
 
-      const handleBanane = (item) => {
-        database()
-        .ref(`messages/${item.id}/`)
-      }
+      
 
       const renderContent = ({item}) => 
         <MessageCard message={item} 

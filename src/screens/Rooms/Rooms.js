@@ -51,7 +51,7 @@ const Rooms = ({navigation}) => {
   const handleOnSend = (item) => {
     database()
     .ref(`rooms/${item.id}/`)
-    navigation.navigate('Room', {roomName: item.text})
+    navigation.navigate('Room', {roomName: item.text, roomId: item.id})
   }
 
   const renderContent = ({item}) => 
