@@ -1,7 +1,7 @@
-import {Text, View } from 'react-native'
-import React, {useLayoutEffect, useState} from 'react'
+import {FlatList, Text, View } from 'react-native'
+import React, {useEffect, useLayoutEffect, useState} from 'react'
 import styles  from './styles'
-import { FloatingButton, InputModal } from '../../components';
+import { FloatingButton, InputModal,MessageCard } from '../../components';
 import database from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth'
 
@@ -16,6 +16,26 @@ const Room = ({ route, navigation }) => {
           title: roomName,
         });
       }, [navigation, roomName]); // 'roomName' değiştiğinde yeniden ayarlama
+
+      useEffect(() => {
+        database()
+        .ref('messages/')
+        .on("value",snapshot =>{
+          const contentData = snapshot.val();
+    
+          const parsedData = parseContentData(contentData || {})
+          setMessageList(parsedData)
+        });
+      }, [])
+    
+      const parseContentData = (data) => {
+        return Object.keys(data).map(key => {
+          return {
+            id: key,
+            ...data[key]
+          }
+        })
+      }
 
       const handleToggle = () => {
         setModalVisible(!modalVisible)
@@ -37,12 +57,27 @@ const Room = ({ route, navigation }) => {
         sendContent(content)
       }
 
+      const handleBanane = (item) => {
+        database()
+        .ref(`messages/${item.id}/`)
+      }
+
+      const renderContent = ({item}) => 
+        <MessageCard message={item} 
+        />
+
 
   return (
     <View style={styles.container}>
       <View style={styles.header_container}>
         <Text style={styles.header_text}>{roomName} odası kuruldu!</Text>
       </View>
+
+      <FlatList
+        data={messageList}
+        renderItem={renderContent}
+        
+      />
       
       <FloatingButton onPress={handleToggle} />
       <InputModal 
@@ -51,6 +86,7 @@ const Room = ({ route, navigation }) => {
         onSend={handleSendContent}
         
       />
+      
     </View>
   )
 }
