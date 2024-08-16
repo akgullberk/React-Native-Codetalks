@@ -1,3 +1,28 @@
+# CODETALKS
+
+# Description
+
+Codetalks is a React Native application that allows users to sign up, log in, and participate in chat rooms. It utilizes Firebase for authentication and real-time database functionalities. The app provides a chat interface where users can join different rooms, send messages, and view messages in real-time.
+
+# Features
+
+- User Authentication: Allows users to sign up and log in using email and password.
+- Real-Time Chat Rooms: Users can join chat rooms, send and receive messages in real-time.
+- Room Management: Users can create new chat rooms and view existing ones.
+- Responsive UI: Designed with a user-friendly interface for both mobile and tablet devices.
+
+# Screenshots
+
+![Screenshot_20240816_173503](https://github.com/user-attachments/assets/d6745dba-78b2-4ab9-bebf-1d86bd65a248)
+![Screenshot_20240816_173527](https://github.com/user-attachments/assets/f4b64369-1bb8-4607-b870-63de292b0a27)
+![Screenshot_20240816_173552](https://github.com/user-attachments/assets/7b1ccbf8-bb97-4618-bec5-c871470d9183)
+![Screenshot_20240816_173603](https://github.com/user-attachments/assets/ea43ed8e-ec5e-4f36-ad0e-a600f7462121)
+![Screenshot_20240816_173636](https://github.com/user-attachments/assets/f643bcac-24e8-449d-990a-e8799be864a5)
+![Screenshot_20240816_173647](https://github.com/user-attachments/assets/d29924e5-4788-446c-8dc7-2a09f8ddb90d)
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
